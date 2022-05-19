@@ -1,3 +1,4 @@
+//#include "gpio.h"
 #include "gpio.c"
 #include "race.c"
 #include "tm4c123gh6pm.h"
@@ -61,6 +62,25 @@ int main(void){
 }
 
 
+void GPIOPortF_Handler(void){
+	
+	if ( GPIO_PORTF_RIS_R & (1 <<4) ){
+		GPIO_PORTF_ICR_R = 0x10;
+
+		if(playerpostion < 3 * CARW ) {
+			playerpostion += (1.5)* CARW; 
+		}
+
+
+}	
+	else if(GPIO_PORTF_RIS_R & (1 <<0)){
+		GPIO_PORTF_ICR_R = 0x01;
+		if(playerpostion > 0) playerpostion -= (1.5)* CARW;
+	}
+	
+	GPIO_PORTF_DATA_R = count_;
+			
+} 
 	
 
 void Delay100ms(unsigned long count){
