@@ -4,8 +4,6 @@
 #define BORDERH    ((unsigned char)BORDER[22])
 #define CARW          ((unsigned char)car[18])   //#define CARW          ((unsigned char)car[18])
 #define CARH          ((unsigned char)car[22])
-#define CARSW        ((unsigned char)cars[18])
-#define CARSH        ((unsigned char)cars[22])
 int count_= 0;
 
 int playerpostion;
